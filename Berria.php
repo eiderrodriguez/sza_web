@@ -58,6 +58,23 @@
             return trim($data);
         }
         $eposta = $_GET['aux'];
+        $sql1 = "SELECT Izena FROM erabiltzaileak WHERE Eposta='$eposta'";
+        $sql2 = "SELECT Eposta FROM erabiltzaileak WHERE Izena='$eposta'";
+        
+        $r1 = mysqli_query($konekt, $sql1);
+        $r2 = mysqli_query($konekt, $sql2);
+        
+        $count1 = mysqli_num_rows($r1);
+        $count2 = mysqli_num_rows($r2);
+        if($count1 != 0){
+            $row = $r1->fetch_assoc();
+            $izen = $row['Izena'];
+        }
+        else if($count2 != 0){
+            $izen = $eposta;
+            $row = $r2->fetch_assoc();
+            $eposta = $row['Eposta'];
+        }
         
         $egun = $_POST['eguna'];
         $hil = $_POST['hil'];
@@ -66,7 +83,7 @@
         $d = "$urt-$hil-$egun";
         $z = test_input($_POST['zergatia']);
         
-        $sql = "INSERT INTO agenda (Eposta, Data, Zeregina) VALUES ('$eposta', '$d', '$z')";
+        $sql = "INSERT INTO agenda (Eposta, Izena, Data, Zeregina) VALUES ('$eposta', '$izen', '$d', '$z')";
         
         if(mysqli_query($konekt, $sql)){
             echo "<script type='text/javascript'>alert('Ondo gorde da!');</script>";

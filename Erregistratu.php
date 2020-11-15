@@ -17,6 +17,7 @@
     <br><br>
     <div class="formularioa">
         <form id="erabilF" name="erabilF" method="post" action="">
+            <p>Izena: <input type="text" id="izena" name="izena" size="40" minlength="4" required/></p>
             <p>Eposta: <input type="email" id="eposta" name="eposta" placeholder="@ehu.es, @ehu.eus" size="40" required/></p>
             <p>Pasahitza: <input type="password" id="pass" name="pass" minlength="6" size="30" required></p>
             <p>Pasahitza errepikatu: <input type="password" id="pass2" name="pass2" minlength="6" size="30" required></p>
@@ -40,12 +41,13 @@
             return trim($data); 
         }
 
+        $izena = test_input($_POST['izena']);
         $eposta = test_input($_POST['eposta']);
         $pasahitza = test_input($_POST['pass']);
         $pasahitza2 = test_input($_POST['pass2']);
         
         
-        $sql = "INSERT INTO erabiltzaileak (Eposta, Pasahitza) VALUES ('$eposta', '$pasahitza')";
+        $sql = "INSERT INTO erabiltzaileak (Eposta, Pasahitza, Izena) VALUES ('$eposta', '$pasahitza', '$izena')";
             
         $xml = simplexml_load_file("Erabiltzaileak.xml");
         if (!isset($xml)){
@@ -53,8 +55,7 @@
         }else{
             $id = $xml['azkenid'];
             $erabiltzailea = $xml->addChild('erabiltzailea');
-            $epost = $erabiltzailea->addChild('eposta', $eposta);
-            $pass = $erabiltzailea->addChild('pasahitza', $pasahitza);
+            $iz = $erabiltzailea->addChild('izena', $izena);
             $id = (int)$id+1;
             $erabiltzailea->addAttribute('id', "$id");
             

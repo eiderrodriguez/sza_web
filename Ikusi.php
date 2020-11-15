@@ -17,6 +17,8 @@
     }
     $eposta = $_GET['aux'];
     $datuak = $konekt->query("SELECT * FROM agenda WHERE Eposta='$eposta'");
+    $datuak2 = $konekt->query("SELECT * FROM agenda WHERE Izena='$eposta'");
+    
     if($datuak->num_rows>0){
         echo '<div class="taula">
             <table>
@@ -25,7 +27,18 @@
                     <th>Zeregina</th>
                 </tr>';
     }
+    else if($datuak2->num_rows>0){
+        echo '<div class="taula">
+            <table>
+                <tr>
+                    <th>Data</th>
+                    <th>Zeregina</th>
+                </tr>';
+    }
     while($row=$datuak->fetch_object()){
+        echo'<tr><td>'.$row->Data.'</td> <td>'.$row->Zeregina.'</td></tr>';
+    }
+    while($row=$datuak2->fetch_object()){
         echo'<tr><td>'.$row->Data.'</td> <td>'.$row->Zeregina.'</td></tr>';
     }
     echo '</table>
