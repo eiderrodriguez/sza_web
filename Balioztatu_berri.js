@@ -3,7 +3,7 @@ $(document).ready(function(){
         var e = $("#eguna").val();
         var h = $("#hil").val();
         var u = document.getElementsByName('urtea');
-
+        
         for (var i = 0, length = u.length; i < length; i++) {
             if (u[i].checked) {
                 u = u[i].value;
@@ -21,6 +21,18 @@ $(document).ready(function(){
                 alert("Hilabeteak 28 egun baino gutxigo ditu!");
                 return false;
             }
+        }
+        var data = u + "-" + h +"-" + e;
+        
+        var date = new Date();
+        var y = date.getFullYear();
+        var m = date.getMonth()+1;
+        var d = date.getDate();
+        var compare = y + "-" + m +"-" + d;
+
+        if(data<compare){
+            alert("Data pasa da jadanik!");
+            return false;
         }
     })
 });

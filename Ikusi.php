@@ -16,8 +16,8 @@
         die("Connection failed: " . mysqli_error());
     }
     $eposta = $_GET['aux'];
-    $datuak = $konekt->query("SELECT * FROM agenda WHERE Eposta='$eposta'");
-    $datuak2 = $konekt->query("SELECT * FROM agenda WHERE Izena='$eposta'");
+    $datuak = $konekt->query("SELECT * FROM agenda WHERE Eposta='$eposta' ORDER BY Data ASC");
+    $datuak2 = $konekt->query("SELECT * FROM agenda WHERE Izena='$eposta' ORDER BY Data ASC");
     
     if($datuak->num_rows>0){
         echo '<div class="taula">
