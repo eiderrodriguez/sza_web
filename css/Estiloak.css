@@ -1,9 +1,11 @@
+/* Goiko irudiaren id: bannerimage */
 #bannerimage {
     width: 100%;
     background-image: url(https://img.freepik.com/vector-gratis/calendario-o-agenda-lupa-mesa-trabajo-vista-superior-mesa-ilustracion-dibujos-animados-plana_101884-849.jpg?size=626&ext=jpg);
     height: 250px;
     background-position: center;
 }
+/* Submit botoi guztiak berdinak izateko */
 input[type=submit]{
     background-color: #D3D3D3;
     width: 80px;
@@ -30,6 +32,7 @@ th{
 th,td{
     padding: 12px 15px;
 }
+/* Taulako errenkadak txuriak izango dira */
 table{
     margin: auto;
     font-size: 0.9em;
@@ -37,6 +40,7 @@ table{
     display:inline-block;
     border: 1px solid #000000;
 }
+/* Taulako even errenkadak(1,3..) grisak izateko */
 tbody tr:nth-of-type(even){
     background-color: #e0e1e1;
 }

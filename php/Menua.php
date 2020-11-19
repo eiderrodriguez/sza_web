@@ -8,6 +8,7 @@
 <body>
     <div id="bannerimage"></div>
     <?php
+        //eposta lortu
         $eposta = $_GET['aux'];
     ?>
     <div class="enlazeak">

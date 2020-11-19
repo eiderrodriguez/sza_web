@@ -50,27 +50,36 @@
 </body>
 </html>
 <?php
+    //Datu-basearekin konektatu
     $konekt = mysqli_connect("localhost", "id15386124_eider", "%76Z>1fO97{-63]E", "id15386124_sza");
     if (!$konekt) {
         die("Connection failed: " . mysqli_error());
     }
+    
+    //bidali submit egiterakoan 
     if(isset($_POST['bidali'])){
         function test_input($data){
             return trim($data);
         }
         $eposta = $_GET['aux'];
+        //Sartu epostarekin
         $sql1 = "SELECT Izena FROM erabiltzaileak WHERE Eposta='$eposta'";
+        //Sartu izenarekin
         $sql2 = "SELECT Eposta FROM erabiltzaileak WHERE Izena='$eposta'";
         
+        //SQL galderak
         $r1 = mysqli_query($konekt, $sql1);
         $r2 = mysqli_query($konekt, $sql2);
         
         $count1 = mysqli_num_rows($r1);
         $count2 = mysqli_num_rows($r2);
+        
+        //Epostarekin sartuta, izena lortu
         if($count1 != 0){
             $row = $r1->fetch_assoc();
             $izen = $row['Izena'];
         }
+        //Izenarekin sartuta, izen eta eposta lortu
         else if($count2 != 0){
             $izen = $eposta;
             $row = $r2->fetch_assoc();

@@ -34,6 +34,7 @@
 </body>
 </html>
 <?php
+    //Datu-basearekin konektatu
     $link = mysqli_connect("localhost","id15386124_eider","%76Z>1fO97{-63]E","id15386124_sza"); 
     if (!$link) {
         die("Connection failed: " . mysqli_error());
@@ -50,7 +51,8 @@
         
         
         $sql = "INSERT INTO erabiltzaileak (Eposta, Pasahitza, Izena) VALUES ('$eposta', '$pasahitza', '$izena')";
-            
+        
+        //XML fitxategia kargatu 
         $xml = simplexml_load_file("../xml/Erabiltzaileak.xml");
         if (!isset($xml)){
             echo "<script type='text/javascript'>alert('Xml fitxategia ez da kargatu.');</script>";
@@ -64,6 +66,7 @@
             $xml['azkenid']=$id;
                 
             $xml->asXML("../xml/Erabiltzaileak.xml");
+            //Erabiltzaile berriaren izena eta id XML fitxategian sartu
         }
         if(mysqli_query($link, $sql)){
             echo "<script type='text/javascript'>alert('Erabiltzailea ondo erregistratu da!'); window.location.href='Proiektua.php';</script>";

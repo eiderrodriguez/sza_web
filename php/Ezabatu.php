@@ -4,8 +4,8 @@
     if (!$konekt) {
         die("Connection failed: " . mysqli_error());
     }
-    
-    $datuak = $konekt->query("DELETE FROM agenda WHERE ID='$id'");
-    
-    echo "Ondo ezabatu da!";
+    else{
+        $datuak = $konekt->query("DELETE FROM agenda WHERE ID='$id'");
+        echo "Ondo ezabatu da!";
+    }
 ?>

@@ -27,12 +27,14 @@
     if (!$konekt) {
         die("Connection failed: " . mysqli_error());
     }
-    
+    //Sartu botoian submit egiterakoan
     if(isset($_POST['sartu'])){
         $erab_eposta = $_POST['eposta'];
         $erab_pass = $_POST['pass'];
         
+        //Epostarekin sartzea konprobatzea
         $sql = "SELECT * FROM erabiltzaileak WHERE Eposta='$erab_eposta' AND Pasahitza='$erab_pass'";
+        //Izenarekin sartzea konprobatzea
         $sql2 = "SELECT * FROM erabiltzaileak WHERE Izena='$erab_eposta' AND Pasahitza='$erab_pass'";
         $result = $konekt->query($sql);
         $result2 = $konekt->query($sql2);
@@ -44,10 +46,12 @@
             
             $konekt->close();
             
+            //Epostarekin sartuz
             if($count!=0) {
                 echo '<script language="javascript">alert("Ongi etorri!");window.location.href="../php/Menua.php?aux='.$erab_eposta.'"</script>';
     			die();
             }
+            //Izenarekin sartuz
             else if($count2!=0) {
                 echo '<script language="javascript">alert("Ongi etorri!");window.location.href="../php/Menua.php?aux='.$erab_eposta.'"</script>';
     			die();
