@@ -1,0 +1,42 @@
+#bannerimage {
+    width: 100%;
+    background-image: url(https://img.freepik.com/vector-gratis/calendario-o-agenda-lupa-mesa-trabajo-vista-superior-mesa-ilustracion-dibujos-animados-plana_101884-849.jpg?size=626&ext=jpg);
+    height: 250px;
+    background-position: center;
+}
+input[type=submit]{
+    background-color: #D3D3D3;
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+}
+.enlazeak{
+    text-align: center;
+    font-family: Arial;
+}
+.formularioa{
+    font-family: Helvetica;
+    text-align: center;
+}
+.taula{
+    margin: 0 auto;
+    text-align:center;
+}
+th{
+    background-color: #00FFFF;
+    color: #000000;
+    text-align: center;
+}
+th,td{
+    padding: 12px 15px;
+}
+table{
+    margin: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    display:inline-block;
+    border: 1px solid #000000;
+}
+tbody tr:nth-of-type(even){
+    background-color: #e0e1e1;
+}

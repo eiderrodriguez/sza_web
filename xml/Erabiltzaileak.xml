@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="Erabiltzaileak_ikusi.xsl" type="text/xsl"?>
+<!DOCTYPE bisitak SYSTEM "Erabiltzaile_liburua.dtd">
+<erabiltzaileak azkenid="3">
+<erabiltzailea id="1">
+    <izena>Eider</izena>
+</erabiltzailea>
+<erabiltzailea id="2">
+    <izena>Eiderrrr</izena>
+</erabiltzailea>
+<erabiltzailea id="3">
+    <izena>Martin</izena>
+</erabiltzailea>
+</erabiltzaileak>
